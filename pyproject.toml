@@ -5,17 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fastlayer"
 version = "0.1.0"
-description = "高速インメモリキャッシュ + NumPy/Numba最適化フレームワーク"
+description = "Soft-CPU Data Cache Engine"
 readme = "README.md"
 requires-python = ">=3.8"
-license = { text = "Apache-2.0" }
-authors = [
-  { name = "Karashi" }
-]
 dependencies = [
-  "numpy",
-  "numba",
+    "numpy",
+    "numba"
 ]
+
+# SPDX 準拠のライセンス指定
+license = { text = "Apache-2.0" }
+
 
 [tool.setuptools.packages.find]
 where = ["."]
