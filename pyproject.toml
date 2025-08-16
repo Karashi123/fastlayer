@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastlayer"
+version = "0.1.0"
+description = "高速インメモリキャッシュ + NumPy/Numba最適化フレームワーク"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Karashi" }
+]
+dependencies = [
+  "numpy",
+  "numba",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
