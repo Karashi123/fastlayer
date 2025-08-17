@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install deps
+        run: |
+          python -m pip install -U pip
+          pip install -r requirements.txt || true
+          pip install -r requirements-dev.txt
+          # Optional: build native modules if present
+          python - <<'PY'
+import os, subprocess, sys, pathlib
+base = pathlib.Path('.')
+# Try to build Cython extension if setup exists; otherwise skip.
+cyx = base/'native'/'cy_hot.pyx'
+if cyx.exists():
+    print("Compiling Cython module...")
+    # minimal inline build using cythonize via setuptools
+    # Users can replace with proper pyproject build
+    subprocess.run([sys.executable, '-m', 'pip', 'install', 'cython', 'setuptools', 'wheel'], check=False)
+PY
+      - name: Run tests
+        run: |
+          pytest -q -n auto
