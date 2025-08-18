@@ -1,22 +1,29 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = [
+  "setuptools>=68",
+  "wheel",
+  "pybind11>=2.11",
+  "numpy>=1.24",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fastlayer"
-version = "0.1.0"
+version = "0.3.0"
 description = "Soft-CPU Data Cache Engine"
 readme = "README.md"
 requires-python = ">=3.8"
-dependencies = [
-    "numpy",
-    "numba"
-]
-
-# SPDX 準拠のライセンス指定
+dependencies = ["numpy>=1.24"]
 license = { text = "Apache-2.0" }
 
+[project.optional-dependencies]
+speedups = ["numba>=0.60", "pybind11>=2.11"]
+dev = [
+  "pytest>=8",
+  "mypy>=1.10",
+  "black>=24.3",
+  "cython>=3.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]
-
