@@ -1,7 +1,15 @@
-# fastlayer __init__.py
-
 from .core.memdb import MemDB
-from .core.hotpaths import dot_numpy, dot_numba, prepare_arrays
+from .core.hotpaths import (
+    dot, dot_numpy, dot_numba,
+    warmup, autotune, health_check,
+    prepare_arrays, get_last_backend,
+)
 from .core.profile_utils import profile
 
-__all__ = ["MemDB", "dot_numpy", "dot_numba", "prepare_arrays", "profile"]
+__all__ = [
+    "MemDB",
+    "dot", "dot_numpy", "dot_numba",
+    "warmup", "autotune", "health_check",
+    "prepare_arrays", "get_last_backend",
+    "profile",
+]
