@@ -1,3 +1,7 @@
+## v0.3.0 (2025-08-19)
+- chore: add release.sh script (7bb84aa)
+
+
 # Changelog
 
 ## [0.2.0] - 2025-08-17
