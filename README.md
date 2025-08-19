@@ -1,5 +1,9 @@
 # FastLayer
 
+[![GitHub release](https://img.shields.io/github/v/release/Karashi123/fastlayer)](https://github.com/Karashi123/fastlayer/releases)
+[![CI](https://github.com/Karashi123/fastlayer/actions/workflows/ci.yml/badge.svg)](https://github.com/Karashi123/fastlayer/actions)
+
+
 **FastLayer is a Soft-CPU Data Cache Engine.**  
 A new kind of runtime framework for Python, inspired by CPU memory hierarchy.
 
